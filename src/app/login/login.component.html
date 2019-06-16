@@ -20,6 +20,8 @@
             <div class="text-danger required-input" *ngIf="submitted && f.password.errors && f.password.errors.required">This field is required</div>
           </div>
 
+          <div *ngIf="invalidCredentials" class="text-center invalid-username">Invalid username or password</div>
+
           <button class="btn btn-block btn-primary mt-3">Login</button>
 
         </form>

@@ -9,6 +9,10 @@ import {HomeComponent} from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {LoginService} from './services/login.service';
+import {RegisterService} from './services/register.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,9 +27,14 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    RegisterService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
