@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.required-input {
+  text-align: left;
+  font-size: small;
+}
+
+#form-box {
+  width: 420px;
+  box-shadow: 0 0 10px 3px grey;
+  border-radius: 10px;
+}

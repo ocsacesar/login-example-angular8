@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center">
+
+  <div id="form-box" class="block-center mt-5">
+    <div class="card text-center">
+      <div class="card-body">
+
+        <fa name="users" size="5x"></fa>
+
+        <p class="text-center py-2">Enter your credentials</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+          <div class="form-group">
+            <input class="form-control" type="text" name="username" placeholder="Username" autocomplete="off" formControlName="username" required="" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+            <div class="text-danger required-input" *ngIf="submitted && f.username.errors && f.username.errors.required">This field is required</div>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password" formControlName="password" required="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+            <div class="text-danger required-input" *ngIf="submitted && f.password.errors && f.password.errors.required">This field is required</div>
+          </div>
+
+          <button class="btn btn-block btn-primary mt-3">Login</button>
+
+        </form>
+
+      </div>
+      <div class="card-footer text-muted">
+        <p class="text-center">Do you need an account?</p>
+        <a class="btn btn-block btn-secondary" [routerLink]="'/register'">Register Now</a>
+      </div>
+    </div>
+  </div>
+
+</div>
